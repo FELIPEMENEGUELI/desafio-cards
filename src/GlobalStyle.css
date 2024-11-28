@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  --color-purple: #601478;
+  --color-pink: #A82670;
+  --color-orange: #E76316;
+  --color-faint-red: #E45B5B;
+  --color-red: #f00;
+  font-family: "Assistant", sans-serif;
+}
