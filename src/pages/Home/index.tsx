@@ -1,7 +1,7 @@
 import { ButtonCustomer } from '../../components/ButtonCustomer'
 import { Cards } from '../../components/Card'
 import { Header } from '../../components/Header'
-import { BoxMain, Container, ContainerCards, BoxSearch } from './style'
+import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards } from './style'
 
 export const Home = () => {
   return (
@@ -14,7 +14,30 @@ export const Home = () => {
             <ButtonCustomer />
           </BoxSearch>
 
-          <Cards />
+          <PositionCards>
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            {/* <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards />
+            <Cards /> */}
+           
+          </PositionCards>
+
         </ContainerCards>
       </BoxMain>
     </Container>

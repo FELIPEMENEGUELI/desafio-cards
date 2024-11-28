@@ -4,25 +4,39 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 200px;
-  height: 250px;
+  width: 110px;
+  height: 150px;
   border-radius: 5px;
   border: 1px solid #ddd;
   box-shadow: 1px 1px 5px #999;
+  
+  @media(min-width: 768px) {
+    width: 200px;
+    height: 250px;
+  }
 `;
 
 export const Image = styled.img`
   border-radius: 9999px;
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   object-fit: cover;
   margin-top: 20px;
   align-self: center;
   border: 0.1px solid #999;
+
+  @media(min-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 export const Title = styled.span`
-  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 export const BoxButtons = styled.div`
@@ -38,7 +52,7 @@ export const BoxButtons = styled.div`
 export const BoxButton = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 `;
 
 export const Button = styled.button`
@@ -47,15 +61,19 @@ export const Button = styled.button`
   cursor: pointer;
   width: 50%;
   color: #999;
-  font-size: 18px;
-
+  font-size: 8px;
+  
   &:hover {
-    color: ${(props) => props.color ? props.color : '#000' }
+    color: ${(props) => props.color ? props.color : '#000'}
+  }
+  
+  @media(min-width: 768px) {
+    font-size: 18px;
   }
 `;
 
 export const Line = styled.div`
-  width: 2px;
+  width: 1px;
   height: 20px;
   background-color: #999;
 `;
