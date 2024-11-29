@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background: linear-gradient(to right, var(--color-purple), var(--color-pink));
   color: #fff;
-  height: 100px;
+  height: 200px;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;

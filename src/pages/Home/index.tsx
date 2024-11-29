@@ -2,25 +2,19 @@ import { useEffect, useState } from 'react';
 import { ButtonCustomer } from '../../components/ButtonCustomer';
 import { Cards } from '../../components/Card';
 import { Header } from '../../components/Header';
-import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards, TitleSearch, UlCards } from './style';
+import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards, TitleSearch, UlCards, Image } from './style';
 import { NewCard } from '../../components/NewCard';
 import { ModalDefault } from '../../components/ModalDefault';
 import { useProps } from '../../hooks/useProps';
 import { GetAllPokemons } from '../../services/GetApi';
 import { Api } from '../../services/Api';
-
-// interface PropsApi {
-//   // id: number;
-//   name: string;
-//   url: string;
-// }
+import GifLoading from '../../assets/loading.gif';
 
 interface PropsApi {
   name: string;
   url?: string;
   sprites: string;
 }
-
 
 export const Home = () => {
 
@@ -31,6 +25,7 @@ export const Home = () => {
   const [inputCreate, setInputCreate] = useState<string>('')
   const [inputHeader, setInputHeader] = useState<string>('')
   const [dataPokemon, setDataPokemon] = useState<PropsApi[]>([]);
+  const [loadinApi, setLoadinApi] = useState<boolean>(false);
 
   const openCreateCard = () => setOpenNewCard(!openNewCard);
 
@@ -59,6 +54,8 @@ export const Home = () => {
 
   const loadApi = async () => {
 
+    setLoadinApi(true);
+
     const response = await GetAllPokemons();
 
     if (response && response.status === 200) {
@@ -75,6 +72,8 @@ export const Home = () => {
     } else {
       alert("Aconteceu algum imprevisto, entre em contato para saber mais!");
     }
+
+    setLoadinApi(false);
   }
 
   const resultInputFilter = dataPokemon.filter((card) => {
@@ -101,15 +100,19 @@ export const Home = () => {
             </BoxSearch>
 
             <UlCards>
-              {allArray.map((card, index) => (
-                <Cards
-                  key={index}
-                  name={card.name}
-                  urlPokemon={card}
-                  url={card.url}
-                  openModal={setOpenModal}
-                />
-              ))}
+              {loadinApi ? (
+                <Image src={GifLoading} alt="Gif de loading" />
+              ) : (
+                allArray.map((card, index) => (
+                  <Cards
+                    key={index}
+                    name={card.name}
+                    urlPokemon={card}
+                    url={card.url}
+                    openModal={setOpenModal}
+                  />
+                ))
+              )}
             </UlCards>
           </PositionCards>
         </ContainerCards>
