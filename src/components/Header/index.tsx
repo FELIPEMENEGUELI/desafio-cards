@@ -1,9 +1,10 @@
-import { Container, ContainerText, Image, ImageLogo, Title } from './style'
-import { TextInput } from '../TextInput'
-import BackgroundImage from '../../assets/backgound-image.jpg'
-import LogoImpar from '../../assets/logo.png'
+import { Container, ContainerText, Image, ImageLogo, Title } from './style';
+import { TextInput } from '../TextInput';
+import BackgroundImage from '../../assets/backgound-image.jpg';
+import LogoImpar from '../../assets/logo.png';
 
 export const Header = () => {
+  
   return (
     <Container>
       <ContainerText>
@@ -18,5 +19,4 @@ export const Header = () => {
       <Image src={BackgroundImage} alt='Imagem de fundo com pessoas.' />
     </Container>
   )
-}
-
+};

@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import { ButtonCustomer } from '../../components/ButtonCustomer'
-import { Cards } from '../../components/Card'
-import { Header } from '../../components/Header'
-import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards } from './style'
-import { NewCard } from '../../components/NewCard'
+import { useState } from 'react';
+import { ButtonCustomer } from '../../components/ButtonCustomer';
+import { Cards } from '../../components/Card';
+import { Header } from '../../components/Header';
+import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards } from './style';
+import { NewCard } from '../../components/NewCard';
+import { ModalDefault } from '../../components/ModalDefault';
 
 interface PropsCard {
   title: string;
@@ -13,12 +14,14 @@ interface PropsCard {
 export const Home = () => {
 
   const [openNewCard, setOpenNewCard] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const [imageSelected, setImageSelected] = useState<File | null>(null);
   const [inputCreate, setInputCreate] = useState<string>('')
 
   const [cards, setCards] = useState<PropsCard[]>([]);
 
   const openCreateCard = () => setOpenNewCard(!openNewCard)
+  const openModalDelete = () => setOpenModal(!openModal)
 
   const handleFile = (e: any) => {
     const file = e.target.files[0] || null;
@@ -27,11 +30,11 @@ export const Home = () => {
   }
 
   const addCard = () => {
-    if (!inputCreate || !imageSelected) { 
+    if (!inputCreate || !imageSelected) {
       alert("Por favor, preencha todos os campos antes de continuar!");
       return;
     }
-  
+
     const data = {
       title: inputCreate,
       image: URL.createObjectURL(imageSelected),
@@ -39,7 +42,6 @@ export const Home = () => {
 
     setCards([...cards, data]);
 
-    console.log("Arquivo carregado:", data);
     setInputCreate("");
     setImageSelected(null)
     setOpenNewCard(!openNewCard)
@@ -57,7 +59,13 @@ export const Home = () => {
 
           <PositionCards>
             {cards.map((card, index) => (
-              <Cards key={index} data={card} />
+              <Cards
+                key={index}
+                title={card.title}
+                image={card.image}
+                handleModal={openModalDelete}
+                addCard={openCreateCard}
+              />
             ))}
 
           </PositionCards>
@@ -71,10 +79,13 @@ export const Home = () => {
           inputCreate={inputCreate}
           setInputCreate={setInputCreate}
           addCard={addCard}
-          openCreateCard={openCreateCard}
+          closeCard={setOpenNewCard}
         />
+      }
+
+      {openModal &&
+        <ModalDefault closeCard={openModalDelete} />
       }
     </Container>
   )
-}
-
+};

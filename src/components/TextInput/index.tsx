@@ -1,7 +1,8 @@
-import { Input, ContainerInput, Icon } from "./style"
+import { Input, ContainerInput, Icon } from "./style";
 import { FaSearch } from "react-icons/fa";
 
 export const TextInput = () => {
+  
   return (
     <ContainerInput>
       <Input
@@ -13,5 +14,4 @@ export const TextInput = () => {
       </Icon>
     </ContainerInput>
   )
-}
-
+};

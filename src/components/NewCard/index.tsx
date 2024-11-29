@@ -1,8 +1,6 @@
 import { ButtonCustomer } from "../ButtonCustomer";
-import {
-  Container, ContainerCard, Title, Create, Line, Forms,
-  Input, PositionButton, InputFile, Label
-} from "./style"
+import { Container, ContainerCard, Title, Create, Line, Forms,
+  Input, PositionButton, InputFile, Label } from "./style";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
@@ -12,14 +10,21 @@ interface PropsNewCard {
   imageSelected: File | null;
   inputCreate: string;
   addCard: () => void;
-  openCreateCard: (value: boolean) => void;
+  closeCard: (value: boolean) => void;
 }
 
-export const NewCard = ({ handleFunction, imageSelected, inputCreate, setInputCreate, addCard, openCreateCard }: PropsNewCard) => {
+export const NewCard = ({
+  handleFunction,
+  imageSelected,
+  inputCreate,
+  setInputCreate,
+  addCard,
+  closeCard }: PropsNewCard) => {
+
   return (
     <Container>
       <ContainerCard>
-        <IoMdCloseCircleOutline className="icon-close" size={25} color="#f00" onClick={() => openCreateCard(false)} />
+        <IoMdCloseCircleOutline className="icon-close" size={25} color="#f00" onClick={() => closeCard(false)} />
 
         <Create>
           <MdOutlinePostAdd size={40} color="#999" />
@@ -49,7 +54,7 @@ export const NewCard = ({ handleFunction, imageSelected, inputCreate, setInputCr
             />
             <Label htmlFor="file">
               {imageSelected ? imageSelected?.name : 'Nenhum arquivo selecionado'}
-              <button>Selecionar arquivo</button>
+              <button onClick={() => document.getElementById("file")?.click()}>Selecionar arquivo</button>
             </Label>
           </div>
 
@@ -62,5 +67,4 @@ export const NewCard = ({ handleFunction, imageSelected, inputCreate, setInputCr
       </ContainerCard>
     </Container>
   )
-}
-
+};
