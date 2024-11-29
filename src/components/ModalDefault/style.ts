@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const ContainerCard = styled.div`
   width: 15rem;
-  height: 35%;
+  height: 40%;
   background-color: #fff;
   border-radius: 5px;
   position: relative;
@@ -37,6 +37,11 @@ export const ContainerCard = styled.div`
     background-color: #E76316;
     border-radius: 50px;
     padding: 2px;
+  }
+
+  @media(min-width: 768px) {
+    width: 20rem;
+    height: 42%;
   }
 `;
 
@@ -67,6 +72,12 @@ export const Create = styled.div`
   span {
     font-size: 12px;
   }
+
+  @media(min-width: 768px){
+    span {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const Title = styled.h4`
@@ -83,4 +94,8 @@ export const PositionButtons = styled.div`
   display: flex;
   justify-content: space-between;
   width: 80%;
+
+  @media(min-width: 768px){
+    margin-top: 15px;
+  }
 `;

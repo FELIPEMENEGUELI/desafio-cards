@@ -37,6 +37,9 @@ export const Title = styled.span`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  color: var(--color-purple);
+  font-size: 14px;
+  text-align: center;
 `;
 
 export const BoxButtons = styled.div`
@@ -77,7 +80,7 @@ export const Button = styled.button`
   }
   
   @media(min-width: 768px) {
-    font-size: 18px;
+    font-size: 14px;
   }
 `;
 

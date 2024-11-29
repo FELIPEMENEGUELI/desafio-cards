@@ -2,31 +2,35 @@ import { useState } from 'react';
 import { ButtonCustomer } from '../../components/ButtonCustomer';
 import { Cards } from '../../components/Card';
 import { Header } from '../../components/Header';
-import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards } from './style';
+import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards, TitleSearch, ButtonSelect } from './style';
 import { NewCard } from '../../components/NewCard';
 import { ModalDefault } from '../../components/ModalDefault';
-
-interface PropsCard {
-  title: string;
-  image: string;
-}
+import { useProps } from '../../hooks/useProps';
+import { dataCard } from '../../hooks/data';
 
 export const Home = () => {
 
+  const { cards, setCards } = useProps();
   const [openNewCard, setOpenNewCard] = useState<boolean>(false);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [imageSelected, setImageSelected] = useState<File | null>(null);
   const [inputCreate, setInputCreate] = useState<string>('')
-
-  const [cards, setCards] = useState<PropsCard[]>([]);
+  const [inputHeader, setInputHeader] = useState<string>('')
+  const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+  const [openImpar, setOpenImpar] = useState<boolean>(true);
 
   const openCreateCard = () => setOpenNewCard(!openNewCard)
-  const openModalDelete = () => setOpenModal(!openModal)
+  const openTesteImpar = () => setOpenImpar(true);
+  const openLoadApi = () => setOpenImpar(false);
+
+  const openModalDelete = (id: number) => {
+    setSelectedCardId(id);
+    setOpenModal(!openModal);
+  };
 
   const handleFile = (e: any) => {
     const file = e.target.files[0] || null;
     setImageSelected(file)
-    console.log('Arquivo carregado:', file)
   }
 
   const addCard = () => {
@@ -36,6 +40,7 @@ export const Home = () => {
     }
 
     const data = {
+      id: cards.length + 1,
       title: inputCreate,
       image: URL.createObjectURL(imageSelected),
     };
@@ -47,28 +52,58 @@ export const Home = () => {
     setOpenNewCard(!openNewCard)
   };
 
+  const concatArray = dataCard.concat(cards);
+  
+  const resultInputFilter = concatArray.filter((card) => {
+    const inputName = inputHeader.toLowerCase();
+    const nameCard = card.title.toLowerCase();
+    return nameCard.includes(inputName);
+  });
+
   return (
     <Container>
-      <Header />
+      <Header inputName={inputHeader} setInputHeader={setInputHeader} />
       <BoxMain>
         <ContainerCards>
+
           <BoxSearch>
-            <span>Resultados da busca</span>
-            <ButtonCustomer title="Novo card" handleFunction={openCreateCard} />
+            <ButtonSelect onClick={openTesteImpar}>Teste impar</ButtonSelect>
+            <ButtonSelect onClick={openLoadApi}>Dados api</ButtonSelect>
           </BoxSearch>
 
-          <PositionCards>
-            {cards.map((card, index) => (
-              <Cards
-                key={index}
-                title={card.title}
-                image={card.image}
-                handleModal={openModalDelete}
-                addCard={openCreateCard}
-              />
-            ))}
+          {openImpar ? (
+            <>
+              <BoxSearch>
+                <TitleSearch>Resultados da busca</TitleSearch>
+                <ButtonCustomer title="Novo card" handleFunction={openCreateCard} />
+              </BoxSearch>
 
-          </PositionCards>
+              <PositionCards>
+                {resultInputFilter.map((card, index) => (
+                  <Cards
+                    key={index}
+                    title={card.title}
+                    image={card.image}
+                    addCard={openCreateCard}
+                  />
+                ))}
+
+                {cards.map((card, index) => (
+                  <Cards
+                    key={index}
+                    title={card.title}
+                    image={card.image}
+                    handleModal={() => openModalDelete(card.id)}
+                    addCard={openCreateCard}
+                  />
+                ))}
+
+              </PositionCards>
+            </>
+          ) : (
+            <span>api</span>
+          )}
+
         </ContainerCards>
       </BoxMain>
 
@@ -84,7 +119,7 @@ export const Home = () => {
       }
 
       {openModal &&
-        <ModalDefault closeCard={openModalDelete} />
+        <ModalDefault cardId={selectedCardId} closeCard={setOpenModal} />
       }
     </Container>
   )

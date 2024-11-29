@@ -2,12 +2,23 @@ import { Container, ContainerCard, Title, Create, Line, PositionButtons, Image, 
 import { IoCloseSharp } from "react-icons/io5";
 import { ButtonCustomer } from "../ButtonCustomer";
 import ImagemDelete from '../../assets/delete.png';
+import { useProps } from "../../hooks/useProps";
 
 interface PropsNewCard {
-  closeCard: () => void;
+  closeCard: (value: boolean) => void;
+  cardId: number | null;
 }
 
-export const ModalDefault = ({ closeCard }: PropsNewCard) => {
+export const ModalDefault = ({ closeCard, cardId }: PropsNewCard) => {
+
+  const {deleteCard} = useProps();
+
+  const handleDelete = () => {
+    if (cardId !== null) {
+      deleteCard(cardId);
+      closeCard(false);
+    }
+  };
 
   return (
     <Container>
@@ -16,7 +27,7 @@ export const ModalDefault = ({ closeCard }: PropsNewCard) => {
           className="icon-close" 
           size={20} 
           color="#FFF" 
-          onClick={closeCard} 
+          onClick={() => closeCard(false)} 
         />
         <BoxImage>
           <Image src={ImagemDelete} alt="Imagem de lixeira simbolizando um icone."/>
@@ -29,8 +40,8 @@ export const ModalDefault = ({ closeCard }: PropsNewCard) => {
           <Line />
 
           <PositionButtons>
-            <ButtonCustomer title="Excluir" color="#f00" />
-            <ButtonCustomer handleFunction={closeCard} title="Cancelar" color="#fff" colorTitle="#f00"/>
+            <ButtonCustomer handleFunction={handleDelete} title="Excluir" color="#f00" />
+            <ButtonCustomer handleFunction={() => closeCard(false)} title="Cancelar" color="#fff" colorTitle="#f00"/>
             
           </PositionButtons>
         </Create>

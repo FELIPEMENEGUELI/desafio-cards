@@ -6,7 +6,7 @@ import LogoImpar from '../../assets/logo.png';
 interface PropsCard {
   title: string;
   image: string;
-  handleModal: (value: boolean) => void;
+  handleModal?: (value: boolean) => void;
   addCard: () => void;
 }
 
@@ -24,7 +24,7 @@ export const Cards = ({ title, image, handleModal, addCard }: PropsCard) => {
       <BoxButtons>
         <BoxButton>
           <RiDeleteBin6Line color={"#f00"}  />
-          <Button onClick={() => handleModal(false)} color="#f00">Excluir</Button>
+          <Button onClick={() => handleModal && handleModal(false)} color="#f00">Excluir</Button>
         </BoxButton>
 
         <Line />

@@ -15,18 +15,19 @@ export const ContainerCards = styled.div`
   flex-direction: column;
   width: 95%;
   margin-top: 20px;
-
-  span {
-    color: var(--color-purple);
-    font-weight: 500;
-    text-align: center;
-  }
   
   @media(min-width: 768px){
     width: 60%;
-    span {
-      font-size: 22px;
-    }
+  }
+`;
+
+export const TitleSearch = styled.span`
+  color: var(--color-purple);
+  font-weight: 500;
+  text-align: center;
+
+@media(min-width: 768px){
+    font-size: 22px;
   }
 `;
 
@@ -45,5 +46,19 @@ export const PositionCards = styled.div`
   
   @media(min-width: 768px){
     gap: 35px;
+  }
+`;
+export const ButtonSelect = styled.button`
+  color: var(--color-purple);
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+@media(min-width: 768px){
+    font-size: 22px;
   }
 `;

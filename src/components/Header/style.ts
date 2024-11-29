@@ -9,7 +9,7 @@ export const Container = styled.div`
   overflow: hidden;
   
   @media(min-width: 768px){
-    height: 150px;
+    height: 220px;
   }
 `;
 
@@ -17,7 +17,7 @@ export const ContainerText = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 5px;
+  padding: 15px;
 `;
 
 export const ImageLogo = styled.img`
