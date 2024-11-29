@@ -1,7 +1,7 @@
-import { Container, ContainerText, Image, ImageLogo, Title } from './style';
+import { Container, ContainerText, Image, ImageLogo } from './style';
 import { TextInput } from '../TextInput';
-import BackgroundImage from '../../assets/backgound-image.jpg';
-import LogoImpar from '../../assets/logo.png';
+import BackgroundImage from '../../assets/backgound-image.png';
+import LogoImpar from '../../assets/logo-teste.svg';
 
 interface PropsHeader {
   inputName: string;
@@ -14,9 +14,6 @@ export const Header = ({inputName, setInputHeader}: PropsHeader) => {
     <Container>
       <ContainerText>
         <ImageLogo src={LogoImpar} alt='Logo empresa ímpar.' />
-        <Title>
-          Teste Ímpar
-        </Title>
       </ContainerText>
 
       <TextInput

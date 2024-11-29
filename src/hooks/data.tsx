@@ -1,4 +1,4 @@
-import HandFish from '../assets/Designer.jpeg'
+import HandFish from '../assets/icons/icone.svg'
 
 export const dataCard = [
   {

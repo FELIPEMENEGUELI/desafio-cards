@@ -9,29 +9,24 @@ export const Container = styled.div`
   overflow: hidden;
   
   @media(min-width: 768px){
-    height: 220px;
+    height: 260px;
   }
 `;
 
 export const ContainerText = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
+  height: 64px;
 `;
 
 export const ImageLogo = styled.img`
-  width: 30px;
-  height: 30px;
-`;
-
-export const Title = styled.span`
-  font-size: 20px;
+  width: 192px;
+  height: 37px;
+  margin-left: 24px;
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: 261px;
   object-fit: cover;
-  position: absolute;
 `;

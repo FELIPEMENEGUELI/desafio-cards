@@ -12,8 +12,8 @@ export const Button = styled.button`
   cursor: pointer;
   
   @media(min-width: 768px){
-    font-size: 15px;
-    width: 100px;
-    height: 35px;
+    font-size: 18px;
+    width: 173px;
+    height: 48px;
   }
 `;

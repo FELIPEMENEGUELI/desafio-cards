@@ -31,6 +31,8 @@ export const ContainerCard = styled.div`
     position: absolute;
     right: 30px;
     top: 10px;
+    background-color: var(--color-orange);
+    border-radius: 50px;
   }
 `;
 
@@ -45,6 +47,10 @@ export const Create = styled.div`
     background-color: transparent;
     border: none;
   }
+`;
+export const Icon = styled.img`
+  width: 46px;
+  height: 46px;
 `;
 
 export const Title = styled.span`
@@ -70,7 +76,7 @@ export const Forms = styled.div`
   }
 
   span {
-    color: #999;
+    color: #454545;
     font-weight: bold;
     font-size: 12px;
   }
@@ -78,15 +84,15 @@ export const Forms = styled.div`
   @media(min-width: 768px){
     
     span {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 `;
 
 export const Input = styled.input`
-  border: 1px solid #ddd;
+  border: 1px solid #B9B9B9;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 100%;
   height: 20px;
   box-sizing: border-box;
@@ -100,8 +106,8 @@ export const Input = styled.input`
   }
   
   @media(min-width: 768px){
-    height: 40px;
-    font-size: 14px;
+    height: 60px;
+    font-size: 18px;
   }
 `;
 
@@ -114,9 +120,9 @@ export const InputFile = styled.input`
 `;
 
 export const Label = styled.label`
-  border: 1px solid #ddd;
+  border: 1px solid #B9B9B9;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 100%;
   height: 20px;
   box-sizing: border-box;
@@ -139,20 +145,23 @@ export const Label = styled.label`
   }
   
   @media(min-width: 768px){
-    height: 40px;
-    font-size: 14px;
+    height: 60px;
+    font-size: 18px;
     
     button {
       display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #fff;
       color: var(--color-orange);
       padding: 5px 10px;
-      border-radius: 5px;
+      border-radius: 8px;
       border: 1px solid var(--color-orange);
       box-shadow: 1px 1px 5px  var(--color-orange);
       cursor: pointer;
-      font-size: 16px;
-      height: 30px;
+      font-size: 18px;
+      width: 224px;
+      height: 48px;
     }
   }
 `;

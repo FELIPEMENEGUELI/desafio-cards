@@ -37,32 +37,50 @@ export const ContainerCard = styled.div`
     background-color: #E76316;
     border-radius: 50px;
     padding: 2px;
+    width: 22px;
+    height: 22px;
   }
 
   @media(min-width: 768px) {
-    width: 20rem;
-    height: 42%;
+    width: 438px;
+    height: 434px;
+
+    .icon-close{
+      width: 34px;
+      height: 34px;
+    }
   }
 `;
 
 export const BoxImage = styled.div`
-   margin-top: 20px;
-   width: 75px;
-   height: 75px;
+   width: 95px;
+   height: 95px;
    display: flex;
    justify-content: center;
    align-items: center;
    align-self: center;
    border-radius: 9999px;
    background-color: #ddd;
+   margin-top: 20px;
+
+   @media(min-width: 768px) {
+    width: 159px;
+    height: 159px;
+    margin-top: 45px;
+  }
 `;
 
 export const Image = styled.img`
   width: 50px;
   height: 50px;
+
+  @media(min-width: 768px) {
+    width: 68px;
+    height: 68px;
+  }
 `;
 
-export const Create = styled.div`
+export const BoxDelete = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
@@ -75,7 +93,7 @@ export const Create = styled.div`
 
   @media(min-width: 768px){
     span {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 `;
@@ -86,16 +104,39 @@ export const Title = styled.h4`
   font-weight: 600;
 
   @media(min-width: 768px){
-    font-size: 30px;
+    font-size: 32px;
   }
 `;
 
 export const PositionButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
+  margin-top: 15px;
+  
+  @media(min-width: 768px){
+    width: 80%;
+    margin-top: 15px;
+  }
+`;
+
+interface ButtonProps {
+  backgroundColor?: string;
+  borderColor?: string;
+}
+
+export const Button = styled.button<ButtonProps>`
+  color: ${(props) => props.color ? props.color : "#fff"};
+  background-color: ${props => props.backgroundColor ? props.backgroundColor : "#fff"};
+  border-color: ${(props) => props.borderColor ? props.borderColor : "transparent"};
+  border-radius: 8px;
+  cursor: pointer;
+  width: 90px;
+  height: 30px;
 
   @media(min-width: 768px){
-    margin-top: 15px;
+    width: 165px;
+    height: 48px;
+    font-size: 18px;
   }
 `;

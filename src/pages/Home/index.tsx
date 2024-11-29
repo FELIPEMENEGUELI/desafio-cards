@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ButtonCustomer } from '../../components/ButtonCustomer';
 import { Cards } from '../../components/Card';
 import { Header } from '../../components/Header';
-import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards, TitleSearch, ButtonSelect } from './style';
+import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards, TitleSearch, UlCards } from './style';
 import { NewCard } from '../../components/NewCard';
 import { ModalDefault } from '../../components/ModalDefault';
 import { useProps } from '../../hooks/useProps';
@@ -17,11 +17,8 @@ export const Home = () => {
   const [inputCreate, setInputCreate] = useState<string>('')
   const [inputHeader, setInputHeader] = useState<string>('')
   const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
-  const [openImpar, setOpenImpar] = useState<boolean>(true);
 
   const openCreateCard = () => setOpenNewCard(!openNewCard)
-  const openTesteImpar = () => setOpenImpar(true);
-  const openLoadApi = () => setOpenImpar(false);
 
   const openModalDelete = (id: number) => {
     setSelectedCardId(id);
@@ -53,7 +50,7 @@ export const Home = () => {
   };
 
   const concatArray = dataCard.concat(cards);
-  
+
   const resultInputFilter = concatArray.filter((card) => {
     const inputName = inputHeader.toLowerCase();
     const nameCard = card.title.toLowerCase();
@@ -65,44 +62,33 @@ export const Home = () => {
       <Header inputName={inputHeader} setInputHeader={setInputHeader} />
       <BoxMain>
         <ContainerCards>
+          <PositionCards>
+            <BoxSearch>
+              <TitleSearch>Resultados da busca</TitleSearch>
+              <ButtonCustomer title="Novo card" handleFunction={openCreateCard} />
+            </BoxSearch>
 
-          <BoxSearch>
-            <ButtonSelect onClick={openTesteImpar}>Teste impar</ButtonSelect>
-            <ButtonSelect onClick={openLoadApi}>Dados api</ButtonSelect>
-          </BoxSearch>
+            <UlCards>
+              {resultInputFilter.map((card, index) => (
+                <Cards
+                  key={index}
+                  title={card.title}
+                  image={card.image}
+                  addCard={openCreateCard}
+                />
+              ))}
 
-          {openImpar ? (
-            <>
-              <BoxSearch>
-                <TitleSearch>Resultados da busca</TitleSearch>
-                <ButtonCustomer title="Novo card" handleFunction={openCreateCard} />
-              </BoxSearch>
-
-              <PositionCards>
-                {resultInputFilter.map((card, index) => (
-                  <Cards
-                    key={index}
-                    title={card.title}
-                    image={card.image}
-                    addCard={openCreateCard}
-                  />
-                ))}
-
-                {cards.map((card, index) => (
-                  <Cards
-                    key={index}
-                    title={card.title}
-                    image={card.image}
-                    handleModal={() => openModalDelete(card.id)}
-                    addCard={openCreateCard}
-                  />
-                ))}
-
-              </PositionCards>
-            </>
-          ) : (
-            <span>api</span>
-          )}
+              {cards.map((card, index) => (
+                <Cards
+                  key={index}
+                  title={card.title}
+                  image={card.image}
+                  handleModal={() => openModalDelete(card.id)}
+                  addCard={openCreateCard}
+                />
+              ))}
+            </UlCards>
+          </PositionCards>
 
         </ContainerCards>
       </BoxMain>

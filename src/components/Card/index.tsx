@@ -1,7 +1,7 @@
-import { BoxButtons, Button, Card, Image, Title, BoxButton, Line } from './style';
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { FiEdit2 } from "react-icons/fi";
+import { BoxButtons, Button, Card, Image, Title, BoxButton, Line, Icon } from './style';
 import LogoImpar from '../../assets/logo.png';
+import Delete from '../../assets/icons/Icon-trash.svg';
+import Edit from '../../assets/icons/Icon-edit.svg';
 
 interface PropsCard {
   title: string;
@@ -23,14 +23,14 @@ export const Cards = ({ title, image, handleModal, addCard }: PropsCard) => {
 
       <BoxButtons>
         <BoxButton>
-          <RiDeleteBin6Line color={"#f00"}  />
+          <Icon src={Delete} alt="icone de delete."/>
           <Button onClick={() => handleModal && handleModal(false)} color="#f00">Excluir</Button>
         </BoxButton>
 
         <Line />
 
         <BoxButton>
-          <FiEdit2 color={"#E76316"}  />
+          <Icon src={Edit} alt="icone para editar." />
           <Button onClick={addCard} color="#E76316">Editar</Button>
         </BoxButton>
       </BoxButtons>

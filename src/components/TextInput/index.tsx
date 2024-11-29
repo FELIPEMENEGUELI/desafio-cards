@@ -1,5 +1,6 @@
-import { Input, ContainerInput, Icon } from "./style";
-import { FaSearch } from "react-icons/fa";
+import { Input, ContainerInput, Icon, IconStyle } from "./style";
+import FaSearch from "../../assets/icons/lupa.svg";
+
 interface PropsInput {
   value: string;
   handleFunction: (e: any) => void;
@@ -16,7 +17,7 @@ export const TextInput = ({value, handleFunction}: PropsInput) => {
       />
 
       <Icon>
-        <FaSearch color={"#999"} size={15} />
+        <IconStyle src={FaSearch} alt="Icone de lupa." />
       </Icon>
     </ContainerInput>
   )

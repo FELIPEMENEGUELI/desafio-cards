@@ -1,8 +1,7 @@
-import { Container, ContainerCard, Title, Create, Line, PositionButtons, Image, BoxImage } from "./style";
+import { Container, ContainerCard, Title, BoxDelete, Line, PositionButtons, Image, BoxImage, Button } from "./style";
 import { IoCloseSharp } from "react-icons/io5";
-import { ButtonCustomer } from "../ButtonCustomer";
-import ImagemDelete from '../../assets/delete.png';
 import { useProps } from "../../hooks/useProps";
+import Delete from '../../assets/icons/Icon-trash.svg';
 
 interface PropsNewCard {
   closeCard: (value: boolean) => void;
@@ -30,21 +29,25 @@ export const ModalDefault = ({ closeCard, cardId }: PropsNewCard) => {
           onClick={() => closeCard(false)} 
         />
         <BoxImage>
-          <Image src={ImagemDelete} alt="Imagem de lixeira simbolizando um icone."/>
+          <Image src={Delete} alt="Imagem de lixeira simbolizando um icone."/>
         </BoxImage>
 
-        <Create>
+        <BoxDelete>
           <Title>Excluir</Title>
           <span>Certeza que deseja excluir?</span>
 
           <Line />
 
           <PositionButtons>
-            <ButtonCustomer handleFunction={handleDelete} title="Excluir" color="#f00" />
-            <ButtonCustomer handleFunction={() => closeCard(false)} title="Cancelar" color="#fff" colorTitle="#f00"/>
-            
+            <Button backgroundColor="#f00" onClick={handleDelete}>
+              Excluir
+            </Button>
+
+            <Button borderColor="#f00" color="#f00" onClick={() => closeCard(false)}>
+              Cancelar
+            </Button>
           </PositionButtons>
-        </Create>
+        </BoxDelete>
       </ContainerCard>
     </Container>
   )

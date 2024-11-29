@@ -1,8 +1,8 @@
 import { ButtonCustomer } from "../ButtonCustomer";
 import { Container, ContainerCard, Title, Create, Line, Forms,
-  Input, PositionButton, InputFile, Label } from "./style";
-import { MdOutlinePostAdd } from "react-icons/md";
-import { IoMdCloseCircleOutline } from "react-icons/io";
+  Input, PositionButton, InputFile, Label, Icon } from "./style";
+import IconCreate from "../../assets/icons/icone_criar.svg";
+import { IoCloseSharp } from "react-icons/io5";
 
 interface PropsNewCard {
   handleFunction: (e: any) => void;
@@ -24,10 +24,16 @@ export const NewCard = ({
   return (
     <Container>
       <ContainerCard>
-        <IoMdCloseCircleOutline className="icon-close" size={25} color="#f00" onClick={() => closeCard(false)} />
+
+        <IoCloseSharp  
+          className="icon-close" 
+          size={30} 
+          color="#FFF" 
+          onClick={() => closeCard(false)} 
+        />
 
         <Create>
-          <MdOutlinePostAdd size={40} color="#999" />
+          <Icon src={IconCreate} alt="Icone de criar." />
           <Title>Criar card</Title>
         </Create>
 

@@ -11,10 +11,12 @@ export const ContainerInput = styled.div`
   left: 10%;
   z-index: 1;
   top: 50%;
+  height: 40px;
   
   @media (min-width: 768px) {
     left: 25%;
     width: 50%;
+    height: 75px;
     font-size: 18px;
   } 
 `;
@@ -23,7 +25,7 @@ export const Input = styled.input`
   background-color: #fff;
   width: 100%;
   padding: 0px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   height: 40px;
   color: #000;
   border: 0;
@@ -35,12 +37,21 @@ export const Input = styled.input`
     box-shadow: 0 0 8px #999999;
     background-color: #f0f8ff;
   } 
+
+  @media(min-width: 768px) {
+    height: 75px;
+    font-size: 24px;
+  }
 `;
 
 export const Icon = styled.div`
   position: absolute;
   right: 0;
-  padding-right: 5px;
+  padding-right: 15px;
   border-radius: 5px;
   background-color: #fff;
+`;
+
+export const IconStyle = styled.img`
+  width: 49px;
 `;

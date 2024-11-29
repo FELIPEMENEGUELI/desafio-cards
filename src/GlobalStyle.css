@@ -4,10 +4,9 @@
 }
 
 body { 
-  --color-purple: #601478;
-  --color-pink: #A82670;
+  --color-purple: #5F1478;
+  --color-pink: #AE276F;
   --color-orange: #E76316;
-  --color-faint-red: #E45B5B;
   --color-red: #f00;
-  font-family: "roboto", sans-serif;
+  font-family: "Mulish", sans-serif;
 }

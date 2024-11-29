@@ -12,12 +12,11 @@ export const BoxMain = styled.div`
 
 export const ContainerCards = styled.div`
   display: flex;
-  flex-direction: column;
   width: 95%;
   margin-top: 20px;
   
-  @media(min-width: 768px){
-    width: 60%;
+  @media(min-width: 1089px){
+    width: 1056px;
   }
 `;
 
@@ -27,38 +26,29 @@ export const TitleSearch = styled.span`
   text-align: center;
 
 @media(min-width: 768px){
-    font-size: 22px;
+    font-size: 32px;
   }
 `;
 
 export const BoxSearch = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
 `;
 
 export const PositionCards = styled.div`
   display: flex;
-  gap: 5px;
-  margin-top: 20px;
+  flex-direction: column;
+`;
+
+export const UlCards = styled.div`
+  display: flex;
+  gap: 25px;
   flex-wrap: wrap; 
+  margin-top: 10px;
   padding-bottom: 20px;
   
-  @media(min-width: 768px){
-    gap: 35px;
-  }
-`;
-export const ButtonSelect = styled.button`
-  color: var(--color-purple);
-  font-weight: 500;
-  text-align: center;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 20px;
-  cursor: pointer;
-
-@media(min-width: 768px){
-    font-size: 22px;
+  @media(min-width: 1089px){
+    margin-top: 20px;
+    gap: 37px;
   }
 `;
