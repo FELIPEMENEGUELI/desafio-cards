@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ButtonCustomer } from '../../components/ButtonCustomer';
 import { Cards } from '../../components/Card';
 import { Header } from '../../components/Header';
@@ -6,7 +6,21 @@ import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards, TitleSear
 import { NewCard } from '../../components/NewCard';
 import { ModalDefault } from '../../components/ModalDefault';
 import { useProps } from '../../hooks/useProps';
-import { dataCard } from '../../hooks/data';
+import { GetAllPokemons } from '../../services/GetApi';
+import { Api } from '../../services/Api';
+
+// interface PropsApi {
+//   // id: number;
+//   name: string;
+//   url: string;
+// }
+
+interface PropsApi {
+  name: string;
+  url?: string;
+  sprites: string;
+}
+
 
 export const Home = () => {
 
@@ -16,14 +30,9 @@ export const Home = () => {
   const [imageSelected, setImageSelected] = useState<File | null>(null);
   const [inputCreate, setInputCreate] = useState<string>('')
   const [inputHeader, setInputHeader] = useState<string>('')
-  const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+  const [dataPokemon, setDataPokemon] = useState<PropsApi[]>([]);
 
-  const openCreateCard = () => setOpenNewCard(!openNewCard)
-
-  const openModalDelete = (id: number) => {
-    setSelectedCardId(id);
-    setOpenModal(!openModal);
-  };
+  const openCreateCard = () => setOpenNewCard(!openNewCard);
 
   const handleFile = (e: any) => {
     const file = e.target.files[0] || null;
@@ -38,24 +47,47 @@ export const Home = () => {
 
     const data = {
       id: cards.length + 1,
-      title: inputCreate,
-      image: URL.createObjectURL(imageSelected),
+      name: inputCreate,
+      url: URL.createObjectURL(imageSelected),
     };
 
     setCards([...cards, data]);
-
     setInputCreate("");
     setImageSelected(null)
     setOpenNewCard(!openNewCard)
   };
 
-  const concatArray = dataCard.concat(cards);
+  const loadApi = async () => {
 
-  const resultInputFilter = concatArray.filter((card) => {
+    const response = await GetAllPokemons();
+
+    if (response && response.status === 200) {
+      const data = response.data;
+
+      const promises = data.results.map(async (pokemon: any) => {
+        const response = await Api(pokemon.url);
+        return response.data;
+      });
+
+      const results = await Promise.all(promises);
+      setDataPokemon(results);
+
+    } else {
+      alert("Aconteceu algum imprevisto, entre em contato para saber mais!");
+    }
+  }
+
+  const resultInputFilter = dataPokemon.filter((card) => {
     const inputName = inputHeader.toLowerCase();
-    const nameCard = card.title.toLowerCase();
+    const nameCard = card.name.toLowerCase();
     return nameCard.includes(inputName);
   });
+
+  const allArray = [...cards, ...resultInputFilter];
+
+  useEffect(() => {
+    loadApi();
+  }, []);
 
   return (
     <Container>
@@ -69,27 +101,17 @@ export const Home = () => {
             </BoxSearch>
 
             <UlCards>
-              {resultInputFilter.map((card, index) => (
+              {allArray.map((card, index) => (
                 <Cards
                   key={index}
-                  title={card.title}
-                  image={card.image}
-                  addCard={openCreateCard}
-                />
-              ))}
-
-              {cards.map((card, index) => (
-                <Cards
-                  key={index}
-                  title={card.title}
-                  image={card.image}
-                  handleModal={() => openModalDelete(card.id)}
-                  addCard={openCreateCard}
+                  name={card.name}
+                  urlPokemon={card}
+                  url={card.url}
+                  openModal={setOpenModal}
                 />
               ))}
             </UlCards>
           </PositionCards>
-
         </ContainerCards>
       </BoxMain>
 
@@ -105,7 +127,7 @@ export const Home = () => {
       }
 
       {openModal &&
-        <ModalDefault cardId={selectedCardId} closeCard={setOpenModal} />
+        <ModalDefault closeCard={setOpenModal} />
       }
     </Container>
   )

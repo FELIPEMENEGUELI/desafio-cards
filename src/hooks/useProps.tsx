@@ -1,9 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import HandFish from '../assets/icons/icone.svg';
 
 interface PropsCard {
   id: number;
-  title: string;
-  image: string;
+  name: string;
+  url: string;
 }
 
 type PropsContext = {
@@ -28,11 +29,24 @@ export const ProviderProps = ({children}: any) => {
     localStorage.setItem('@cards', JSON.stringify(cards));
   };
 
+  const checkBlobUrl = (url: string): string => {
+    if (url.startsWith('blob:')) {
+      return HandFish;
+    }
+    return url;
+  };
+
   const getCardsLocal = () => {
     const card = localStorage.getItem('@cards');
     if (card !== null) {
       const data = JSON.parse(card);
-      setCards(data);
+
+      const updateCardImg = data.map((img: PropsCard)=> ({
+        ...img,
+        url: checkBlobUrl(img.url)
+      }));
+      
+      setCards(updateCardImg);
     }
   };
 

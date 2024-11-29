@@ -25,9 +25,9 @@ export const TitleSearch = styled.span`
   font-weight: 500;
   text-align: center;
 
-@media(min-width: 768px){
-    font-size: 32px;
-  }
+  @media(min-width: 768px){
+      font-size: 32px;
+    }
 `;
 
 export const BoxSearch = styled.div`
@@ -38,6 +38,7 @@ export const BoxSearch = styled.div`
 export const PositionCards = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const UlCards = styled.div`

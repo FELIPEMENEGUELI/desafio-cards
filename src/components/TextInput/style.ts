@@ -53,5 +53,9 @@ export const Icon = styled.div`
 `;
 
 export const IconStyle = styled.img`
-  width: 49px;
+  width: 35px;
+
+  @media(min-width: 768px) {
+    width: 49px;
+  }
 `;

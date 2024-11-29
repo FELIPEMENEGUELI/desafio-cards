@@ -1,35 +1,29 @@
 import { Container, ContainerCard, Title, BoxDelete, Line, PositionButtons, Image, BoxImage, Button } from "./style";
 import { IoCloseSharp } from "react-icons/io5";
-import { useProps } from "../../hooks/useProps";
 import Delete from '../../assets/icons/Icon-trash.svg';
 
 interface PropsNewCard {
   closeCard: (value: boolean) => void;
-  cardId: number | null;
 }
 
-export const ModalDefault = ({ closeCard, cardId }: PropsNewCard) => {
+export const ModalDefault = ({ closeCard }: PropsNewCard) => {
 
-  const {deleteCard} = useProps();
-
-  const handleDelete = () => {
-    if (cardId !== null) {
-      deleteCard(cardId);
-      closeCard(false);
-    }
+  const closePokemon = () => {
+    alert("Funcionalidade de delete ainda não foi implementada.");
+    closeCard(false);
   };
 
   return (
     <Container>
       <ContainerCard>
-        <IoCloseSharp  
-          className="icon-close" 
-          size={20} 
-          color="#FFF" 
-          onClick={() => closeCard(false)} 
+        <IoCloseSharp
+          className="icon-close"
+          size={20}
+          color="#FFF"
+          onClick={() => closeCard && closeCard(false)}
         />
         <BoxImage>
-          <Image src={Delete} alt="Imagem de lixeira simbolizando um icone."/>
+          <Image src={Delete} alt="Imagem de lixeira simbolizando um icone." />
         </BoxImage>
 
         <BoxDelete>
@@ -39,7 +33,7 @@ export const ModalDefault = ({ closeCard, cardId }: PropsNewCard) => {
           <Line />
 
           <PositionButtons>
-            <Button backgroundColor="#f00" onClick={handleDelete}>
+            <Button backgroundColor="#f00" onClick={closePokemon}>
               Excluir
             </Button>
 
