@@ -2,25 +2,33 @@ import { BoxButtons, Button, Card, Image, Title, BoxButton, Line } from './style
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit2 } from "react-icons/fi";
 import LogoImpar from '../../assets/logo.png'
+interface PropsCard {
+  data: {
+    title: string;
+    image: string;
+  }
+}
 
-export const Cards = () => {
+export const Cards = ({ data }: PropsCard) => {
   return (
     <Card>
-      <Image src={LogoImpar} alt="Imagem de exibição do card." />
+      <Image src={data.image ? data.image : LogoImpar} alt="Imagem de exibição do card." />
       <Title>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum alias saepe, ad expedita fugiat sed nisi velit, sequi inventore recusandae repellendus sint laborum exercitationem! Temporibus sapiente nostrum officia nam eveniet?
+        {data.title ? data.title : (
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        )}
       </Title>
 
       <BoxButtons>
         <BoxButton>
-          <RiDeleteBin6Line color={"#f00"} size={10} />
+          <RiDeleteBin6Line color={"#f00"}  />
           <Button color="#f00">Excluir</Button>
         </BoxButton>
 
         <Line />
 
         <BoxButton>
-          <FiEdit2 color={"#E76316"} size={10} />
+          <FiEdit2 color={"#E76316"}  />
           <Button color="#E76316">Editar</Button>
         </BoxButton>
       </BoxButtons>

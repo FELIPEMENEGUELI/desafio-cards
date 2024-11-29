@@ -1,8 +1,13 @@
 import { Button } from './style'
 
-export const ButtonCustomer = () => {
+interface PropsButton {
+  handleFunction?: () => void;
+  title: string;
+}
+
+export const ButtonCustomer = ({handleFunction, title}: PropsButton) => {
   return (
-    <Button>Novo Card</Button>
+    <Button onClick={handleFunction}>{title}</Button>
   )
 }
 

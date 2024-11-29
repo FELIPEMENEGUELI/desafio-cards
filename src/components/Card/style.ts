@@ -4,7 +4,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 110px;
+  width: 115px;
   height: 150px;
   border-radius: 5px;
   border: 1px solid #ddd;
@@ -44,15 +44,24 @@ export const BoxButtons = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding: 10px 10px;
+  padding: 10px 5px;
   border-top: 0.1px solid #eeeeee90;
   background-color: #eeeeee99;
+
+  @media(min-width: 768px){
+    padding: 10px 10px;
+  }
 `;
 
 export const BoxButton = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
+  font-size: 14px;
+  
+  @media(min-width: 768px){
+    font-size: 18px;
+  }
 `;
 
 export const Button = styled.button`

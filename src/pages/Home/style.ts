@@ -41,11 +41,9 @@ export const PositionCards = styled.div`
   gap: 5px;
   margin-top: 20px;
   flex-wrap: wrap; 
-  /* justify-content: flex-start; */
+  padding-bottom: 20px;
   
-  justify-content: space-evenly;
   @media(min-width: 768px){
-    gap: 20px;
-    /* gap: 35px; */
+    gap: 35px;
   }
 `;
