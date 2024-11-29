@@ -47,7 +47,12 @@ export const UlCards = styled.div`
   flex-wrap: wrap; 
   margin-top: 10px;
   padding-bottom: 20px;
+  justify-content: space-between;
   
+  @media(min-width: 768px){
+    justify-content: flex-start;
+  }
+
   @media(min-width: 1089px){
     margin-top: 20px;
     gap: 37px;
