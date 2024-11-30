@@ -7,8 +7,8 @@
 #
 ### Desafio:
 - Desafio de replicar um layout proposto.
-- Foi desenvolvido primeiramente pensando em 'mobile first', para que pudesse ficar responsivo quando fosse acessado pelo celular.
-- Consumindo a api do [pokemon].
+- Foi desenvolvido pensando na tela proposta 1440px;
+- Foi modificado o layout para se comportar com tela ideal para mobile.
 - Possibilidade de criar novos cards, sendo exibido junto com os cards do pokemon, podendo adicionar um titulo e uma imagem.
 - Cada card criado sera salvo no local storage no browser, quando carregado novamente o navegador sera exibido outra imagem, um icone padrão como mostrado no layout base.
 - Ainda não é possível editar/excluir o card criado.
