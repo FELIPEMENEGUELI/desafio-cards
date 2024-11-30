@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background-color: ${(props) => props.color ? props.color : '#E76316'};
-  border-radius: 5px;
-  width: 70px;
-  height: 25px;
-  color: ${(props) => props.title ? props.title : '#fff'};
-  border-color: ${(props) => props.title ? '#f00' : 'transparent'};
-  font-size: 10px;
-  box-shadow: 1px 2px 10px #999;
+  top: 293px;
+  left: 1041px;
+  width: 173px;
+  height: 48px;
+  background: var(--cor-destaque) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #92207242;
+  border-radius: 8px;
+  opacity: 1;
+  color: var(--cor-branco);
+  border: none;
+  font-size: 18px;
+  font-family: "Mulish", serif;
   cursor: pointer;
-  
-  @media(min-width: 768px){
-    font-size: 18px;
-    width: 173px;
-    height: 48px;
-  }
 `;

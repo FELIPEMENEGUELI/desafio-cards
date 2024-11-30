@@ -4,7 +4,7 @@ import { Api } from "./Api"
 export const GetAllPokemons = () => {
 
   try {
-    const response = Api.get('/pokemon?offset=20&limit=20');
+    const response = Api.get('/pokemon?offset=20&limit=70');
     return response;
 
   } catch (error) {

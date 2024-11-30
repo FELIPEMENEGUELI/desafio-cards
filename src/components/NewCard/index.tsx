@@ -1,6 +1,6 @@
 import { ButtonCustomer } from "../ButtonCustomer";
-import { Container, ContainerCard, Title, Create, Line, Forms,
-  Input, PositionButton, InputFile, Label, Icon } from "./style";
+import { Container, ContainerCard, Title, Line, Input, PositionButton, Label, Icon,
+  TitleLabel, BoxInput, InputLabel, TitleInput } from "./style";
 import IconCreate from "../../assets/icons/icone_criar.svg";
 import { IoCloseSharp } from "react-icons/io5";
 
@@ -25,51 +25,46 @@ export const NewCard = ({
     <Container>
       <ContainerCard>
 
-        <IoCloseSharp  
-          className="icon-close" 
-          size={30} 
-          color="#FFF" 
-          onClick={() => closeCard(false)} 
+        <IoCloseSharp
+          className="icon-close"
+          size={30}
+          color="#FFF"
+          onClick={() => closeCard(false)}
         />
 
-        <Create>
-          <Icon src={IconCreate} alt="Icone de criar." />
-          <Title>Criar card</Title>
-        </Create>
+        <Icon src={IconCreate} alt="Icone de criar." />
+        <Title>Criar card</Title>
 
         <Line />
 
-        <Forms>
-          <div>
-            <span>Digite um nome para o card</span>
-            <Input
-              onChange={(e) => setInputCreate(e.target.value)}
-              value={inputCreate}
-              placeholder="Digite o titulo"
-            />
-          </div>
+        <TitleLabel>Digite um nome para o card</TitleLabel>
+        <Input
+          onChange={(e: any) => setInputCreate(e.target.value)}
+          value={inputCreate}
+          placeholder="Digite o título"
+        />
 
-          <div>
-            <span>Inclua uma imagem para aparecer no card</span>
+        <TitleLabel>Inclua uma imagem para aparecer no card</TitleLabel>
+        <BoxInput onClick={() => document.getElementById("file")?.click()}>
+          <InputLabel
+            type="file"
+            id="file"
+            accept="image/*"
+            className="hidden-input"
+            onChange={handleFunction}
+          />
 
-            <InputFile
-              type="file"
-              id="file"
-              accept="image/*"
-              onChange={handleFunction}
-            />
-            <Label htmlFor="file">
-              {imageSelected ? imageSelected?.name : 'Nenhum arquivo selecionado'}
-              <button onClick={() => document.getElementById("file")?.click()}>Selecionar arquivo</button>
-            </Label>
-          </div>
-
-          <Line />
-
-          <PositionButton>
-            <ButtonCustomer handleFunction={addCard} title="Criar card" />
-          </PositionButton>
-        </Forms>
+          <TitleInput className="file-name">{imageSelected ? imageSelected?.name : 'Nenhum arquivo selecionado'}</TitleInput>
+          <Label htmlFor="file" onClick={(e) => e.stopPropagation()}>
+            Escolher arquivo
+          </Label>
+        </BoxInput>
+      
+        <Line margin="50px" />
+      
+        <PositionButton>
+          <ButtonCustomer title="Criar card" handleFunction={addCard}/>
+        </PositionButton>
       </ContainerCard>
     </Container>
   )

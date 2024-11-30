@@ -1,167 +1,145 @@
 import styled from "styled-components";
 
-export const Line = styled.div`
-  width: 100%;
-  height: 1.5px;
-  background-color: #99999970;
-`;
-
 export const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background-color: #00000030;
-  width: 100vw;
-  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1; 
-  backdrop-filter: blur(0.8px);
+  width: 1440px;
+  height: 772px;
+  background: #F6F4F6CC 0% 0% no-repeat padding-box;
 `;
 
 export const ContainerCard = styled.div`
-  width: 50%;
-  height: 100%;
-  background-color: #fff;
-  padding: 0 30px;
+  top: -2px;
+  left: 798px;
+  width: 642px;
+  height: 767px;
+  background: var(--cor-branco) 0% 0% no-repeat padding-box;
+  opacity: 1;
 
   .icon-close{
     cursor: pointer;
     position: absolute;
     right: 30px;
     top: 10px;
-    background-color: var(--color-orange);
+    background-color: var(--cor-destaque);
     border-radius: 50px;
   }
 `;
 
-export const Create = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-top: 50px;
-  margin-bottom: 20px;
-
-  button {
-    background-color: transparent;
-    border: none;
-  }
-`;
 export const Icon = styled.img`
+  margin-top: 41px;
+  margin-left: 32px;
+  margin-right: 18px;
   width: 46px;
   height: 46px;
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
 `;
 
 export const Title = styled.span`
-  color: var(--color-purple);
-  font-size: 16px;
-
-  @media(min-width: 768px){
-    font-size: 30px;
-    font-weight: 600;
-  }
+  background-color: var(--cor-branco);
+  color: #5F1478;
+  font-size: 36px;
+  opacity: 1;
+  font-weight: 700;
+  font-family: "Mulish", serif;
 `;
 
-export const Forms = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-  gap: 40px;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  span {
-    color: #454545;
-    font-weight: bold;
-    font-size: 12px;
-  }
-
-  @media(min-width: 768px){
-    
-    span {
-      font-size: 14px;
-    }
-  }
+export const TitleLabel = styled.div`
+  margin-top: 50px;
+  margin-left: 35px;
+  height: 18px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #454545;
+  text-transform: uppercase;
+  font-family: "Mulish", serif;
+  opacity: 1;
+  font-size: 14px;
+  background-color: #fff;
+  font-weight: 600;
 `;
 
 export const Input = styled.input`
+  margin-top: 12px;
+  margin-left: 35px;
+  width: 543px;
+  height: 60px;
+  background: var(--cor-branco) 0% 0% no-repeat padding-box;
   border: 1px solid #B9B9B9;
-  padding: 10px;
   border-radius: 8px;
-  width: 100%;
-  height: 20px;
-  box-sizing: border-box;
-  outline: none;
-  font-size: 10px;
-  transition: box-shadow 0.3s ease, background-color 0.1s ease;
-  
-  &:focus {
-    box-shadow: 0 0 8px #999999;
-    background-color: #f0f8ff;
-  }
-  
-  @media(min-width: 768px){
-    height: 60px;
-    font-size: 18px;
-  }
+  opacity: 1;
+  font-size: 18px;
+  padding-left: 25px;
+  color: #757575;
+  font-family: "Mulish", serif;
 `;
 
-export const PositionButton = styled.div`
-  align-self: flex-end;
+export const BoxInput = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 573px;
+  margin-top: 12px;
+  margin-left: 35px;
+  background: var(--cor-branco) 0% 0% no-repeat padding-box;
+  border: 1px solid #B9B9B9;
+  border-radius: 8px;
+  cursor: pointer;
 `;
 
-export const InputFile = styled.input`
-  display: none;
+export const InputLabel = styled.input`
+  display: none;;
 `;
 
 export const Label = styled.label`
-  border: 1px solid #B9B9B9;
-  padding: 10px;
-  border-radius: 8px;
-  width: 100%;
-  height: 20px;
-  box-sizing: border-box;
-  outline: none;
-  transition: box-shadow 0.3s ease, background-color 0.1s ease;
+  line-height: 60px; 
+  font-family: "Mulish", serif;
   cursor: pointer;
+  width: 224px;
+  height: 46px;
+  margin: 6px 8px;
+  background: var(--cor-branco) 0% 0% no-repeat padding-box;
+  border: 1px solid var(--cor-destaque);
+  box-shadow: 0px 3px 6px #E763162E;
+  border: 1px solid #E76316;
+  border-radius: 8px;
+  color: var(--cor-destaque);
+  font-size: 18px;
   display: flex;
   align-items: center;
-  font-size: 10px;
-  color: #999;
-  justify-content: space-between;
+  justify-content: center;
+  font-weight: 700;
+`;
 
-  &:focus {
-    box-shadow: 0 0 8px #999999;
-    background-color: #f0f8ff;
-  }
+export const TitleInput = styled.span`
+  margin-left: 15px;
+  font-size: 16px;
+  color: #757575;
+  font-family: "Mulish", serif;
+  background: var(--cor-branco) 0% 0% no-repeat padding-box;
+`;
 
-  button {
-   display: none;
-  }
-  
-  @media(min-width: 768px){
-    height: 60px;
-    font-size: 18px;
-    
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #fff;
-      color: var(--color-orange);
-      padding: 5px 10px;
-      border-radius: 8px;
-      border: 1px solid var(--color-orange);
-      box-shadow: 1px 1px 5px  var(--color-orange);
-      cursor: pointer;
-      font-size: 18px;
-      width: 224px;
-      height: 48px;
-    }
-  }
+export const PositionButton = styled.div`
+  margin-left: 435px;
+  margin-top: 26px;
+  background: var(--cor-branco) 0% 0% no-repeat padding-box;
+`;
+
+interface PropsLine {
+  margin?: string;
+}
+
+export const Line = styled.div<PropsLine>`
+  margin-top: ${(props) => !props.margin ? '30px' : props.margin};
+  margin-left: 32px;
+  width: 572px;
+  height: 0px;
+  border: 1px solid #D4D4D4;
 `;

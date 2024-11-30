@@ -1,4 +1,4 @@
-import { Input, ContainerInput, Icon, IconStyle } from "./style";
+import { Input, IconStyle } from "./style";
 import FaSearch from "../../assets/icons/lupa.svg";
 
 interface PropsInput {
@@ -9,16 +9,13 @@ interface PropsInput {
 export const TextInput = ({value, handleFunction}: PropsInput) => {
   
   return (
-    <ContainerInput>
+    <>
       <Input
         onChange={(e) => handleFunction(e.target.value)}
         value={value}
-        placeholder='Digite aqui sua busca'
+        placeholder='Digite aqui sua busca...'
       />
-
-      <Icon>
-        <IconStyle src={FaSearch} alt="Icone de lupa." />
-      </Icon>
-    </ContainerInput>
+      <IconStyle src={FaSearch} alt="Icone de lupa." />
+    </>
   )
 };

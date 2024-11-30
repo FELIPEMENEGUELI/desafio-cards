@@ -1,4 +1,4 @@
-import { BoxButtons, Button, Card, Image, Title, BoxButton, Line, Icon } from './style';
+import { BoxButtons, Button, Card, Image, Title, Line, Icon, LineVertical } from './style';
 import LogoImpar from '../../assets/logo.png';
 import Delete from '../../assets/icons/Icon-trash.svg';
 import Edit from '../../assets/icons/Icon-edit.svg';
@@ -33,28 +33,24 @@ export const Cards = ({ name, urlPokemon, openModal, url }: PropsCard) => {
     <Card>
       <Image src={image} alt="Imagem de exibição do card." onError={handleImageError} />
 
+      <Line />
+
       <Title>
-        {name ? name : (
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-        )}
+        {name ? name.split('-')[0] : ("Lorem ipsum dolor sit amet consectetur.")}
       </Title>
 
       <BoxButtons>
-        <BoxButton>
+        <Button onClick={handleFunction} color="#f00">
           <Icon src={Delete} alt="icone de delete." />
-          <Button
-            onClick={handleFunction}
-            color="#f00">
-            Excluir
-          </Button>
-        </BoxButton>
+          Excluir
+        </Button>
 
-        <Line />
+        <LineVertical />
 
-        <BoxButton>
+        <Button onClick={editCard} color="#E76316">
           <Icon src={Edit} alt="icone para editar." />
-          <Button onClick={editCard} color="#E76316">Editar</Button>
-        </BoxButton>
+          Editar
+        </Button>
       </BoxButtons>
     </Card>
   )

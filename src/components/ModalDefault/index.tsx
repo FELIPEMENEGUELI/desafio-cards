@@ -1,5 +1,4 @@
-import { Container, ContainerCard, Title, BoxDelete, Line, PositionButtons, Image, BoxImage, Button } from "./style";
-import { IoCloseSharp } from "react-icons/io5";
+import { Container, ContainerCard, Title, Line, Image, BoxImage, Button, ConfirmDelete } from "./style";
 import Delete from '../../assets/icons/Icon-trash.svg';
 
 interface PropsNewCard {
@@ -16,32 +15,24 @@ export const ModalDefault = ({ closeCard }: PropsNewCard) => {
   return (
     <Container>
       <ContainerCard>
-        <IoCloseSharp
-          className="icon-close"
-          size={20}
-          color="#FFF"
-          onClick={() => closeCard && closeCard(false)}
-        />
+        <button onClick={() => closeCard && closeCard(false)} className="icon-close">X</button>
+
         <BoxImage>
           <Image src={Delete} alt="Imagem de lixeira simbolizando um icone." />
         </BoxImage>
 
-        <BoxDelete>
-          <Title>Excluir</Title>
-          <span>Certeza que deseja excluir?</span>
+        <Title>Excluir</Title>
+        <ConfirmDelete>Certeza que deseja excluir?</ConfirmDelete>
 
-          <Line />
+        <Line />
 
-          <PositionButtons>
-            <Button backgroundColor="#f00" onClick={closePokemon}>
-              Excluir
-            </Button>
+        <Button backgroundColor="#DB2525" marginLeft="49px" onClick={closePokemon}>
+          Excluir
+        </Button>
 
-            <Button borderColor="#f00" color="#f00" onClick={() => closeCard(false)}>
-              Cancelar
-            </Button>
-          </PositionButtons>
-        </BoxDelete>
+        <Button borderColor="#f00" color="#f00" marginLeft="17px" onClick={() => closeCard(false)}>
+          Cancelar
+        </Button>
       </ContainerCard>
     </Container>
   )

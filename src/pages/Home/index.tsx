@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import { ButtonCustomer } from '../../components/ButtonCustomer';
 import { Cards } from '../../components/Card';
 import { Header } from '../../components/Header';
-import { BoxMain, Container, ContainerCards, BoxSearch, PositionCards, TitleSearch, UlCards, Image } from './style';
-import { NewCard } from '../../components/NewCard';
 import { ModalDefault } from '../../components/ModalDefault';
+import { NewCard } from '../../components/NewCard';
 import { useProps } from '../../hooks/useProps';
-import { GetAllPokemons } from '../../services/GetApi';
 import { Api } from '../../services/Api';
-import GifLoading from '../../assets/loading.gif';
+import { GetAllPokemons } from '../../services/GetApi';
+import { Box, BoxMain, Container, TitleSearch, UlCards } from './style';
 
 interface PropsApi {
   name: string;
@@ -25,7 +24,6 @@ export const Home = () => {
   const [inputCreate, setInputCreate] = useState<string>('')
   const [inputHeader, setInputHeader] = useState<string>('')
   const [dataPokemon, setDataPokemon] = useState<PropsApi[]>([]);
-  const [loadinApi, setLoadinApi] = useState<boolean>(false);
 
   const openCreateCard = () => setOpenNewCard(!openNewCard);
 
@@ -54,8 +52,6 @@ export const Home = () => {
 
   const loadApi = async () => {
 
-    setLoadinApi(true);
-
     const response = await GetAllPokemons();
 
     if (response && response.status === 200) {
@@ -72,8 +68,6 @@ export const Home = () => {
     } else {
       alert("Aconteceu algum imprevisto, entre em contato para saber mais!");
     }
-
-    setLoadinApi(false);
   }
 
   const resultInputFilter = dataPokemon.filter((card) => {
@@ -91,32 +85,25 @@ export const Home = () => {
   return (
     <Container>
       <Header inputName={inputHeader} setInputHeader={setInputHeader} />
-      <BoxMain>
-        <ContainerCards>
-          <PositionCards>
-            <BoxSearch>
-              <TitleSearch>Resultados da busca</TitleSearch>
-              <ButtonCustomer title="Novo card" handleFunction={openCreateCard} />
-            </BoxSearch>
+      <Box>
+        <BoxMain>
+          <TitleSearch>Resultados da busca</TitleSearch>
+          <ButtonCustomer title="Novo card" handleFunction={openCreateCard} />
+        </BoxMain>
 
-            <UlCards>
-              {loadinApi ? (
-                <Image src={GifLoading} alt="Gif de loading" />
-              ) : (
-                allArray.map((card, index) => (
-                  <Cards
-                    key={index}
-                    name={card.name}
-                    urlPokemon={card}
-                    url={card.url}
-                    openModal={setOpenModal}
-                  />
-                ))
-              )}
-            </UlCards>
-          </PositionCards>
-        </ContainerCards>
-      </BoxMain>
+        <UlCards>
+          {allArray.map((card, index) => (
+            <Cards
+              key={index}
+              name={card.name}
+              urlPokemon={card}
+              url={card.url}
+              openModal={setOpenModal}
+            />
+          )
+          )}
+        </UlCards>
+      </Box>
 
       {openNewCard &&
         <NewCard
@@ -129,9 +116,7 @@ export const Home = () => {
         />
       }
 
-      {openModal &&
-        <ModalDefault closeCard={setOpenModal} />
-      }
+      {openModal && <ModalDefault closeCard={setOpenModal} />}
     </Container>
   )
 };
