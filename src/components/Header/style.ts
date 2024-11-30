@@ -2,12 +2,16 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
-  width: 1440px;
-  height: 64px;
   box-shadow: 0px 3px 6px #00000029;
   opacity: 1;
-  position: absolute;
   top: 0;
+  width: 100%;
+  height: 64px;
+  
+  @media(min-width: 1400px){
+    position: absolute;
+    width: 1440px;
+  }
 `;
 
 export const ImageLogo = styled.img`
@@ -19,7 +23,11 @@ export const ImageLogo = styled.img`
 `;
 
 export const Image = styled.img`
-  width: 1440px;
-  height: 261px;
-  object-fit: contain;
+  height: 150px;
+  width: 100%;
+  
+  @media(min-width: 1400px){
+    height: 261px;
+    width: 1440px;
+  }
 `;

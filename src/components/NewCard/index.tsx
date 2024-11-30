@@ -19,7 +19,8 @@ export const NewCard = ({
   inputCreate,
   setInputCreate,
   addCard,
-  closeCard }: PropsNewCard) => {
+  closeCard,
+ }: PropsNewCard) => {
 
   return (
     <Container>

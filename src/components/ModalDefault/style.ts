@@ -8,14 +8,18 @@ export const Container = styled.div`
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 1440px;
   height: 772px;
+  width: 100%;
+  
+  @media(min-width: 1400px){
+    width: 1440px;
+  }
 `;
 
 export const ContainerCard = styled.div`
   top: 144px;
   left: 501px;
-  width: 438px;
+  width: 400px;
   height: 434px;
   background: var(--cor-branco) 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -37,11 +41,15 @@ export const ContainerCard = styled.div`
     font-family: "Mulish", serif;
     cursor: pointer;
   }
+
+  @media(min-width: 1400px){
+    width: 438px;
+  }
 `;
 
 export const BoxImage = styled.div`
   margin-top: 50px;
-  margin-left: 140px;
+  margin-left: 125px;
   width: 159px;
   height: 159px;
   background: #DB25250F 0% 0% no-repeat padding-box;
@@ -51,6 +59,10 @@ export const BoxImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media(min-width: 1400px){
+    margin-left: 140px;
+  }
 `;
 
 export const Image = styled.img`
@@ -75,7 +87,7 @@ export const Title = styled.h4`
 
 export const ConfirmDelete = styled.span`
   margin-top: 13px;
-  margin-left: 125px;
+  margin-left: 105px;
   width: 100%;
   height: 15px;
   color: var(--cor-texto);
@@ -87,6 +99,11 @@ export const ConfirmDelete = styled.span`
   font-size: 12px;
   font-family: "Mulish", serif;
   background: var(--cor-branco) 0% 0% no-repeat padding-box;
+
+  @media(min-width: 1400px){
+    margin-left: 135px;
+  }
+  
 `;
 
 interface ButtonProps {
@@ -102,8 +119,6 @@ export const Button = styled.button<ButtonProps>`
   cursor: pointer;
   border: ${(props) => props.borderColor ? "1px solid #DB2525" : "0px"};
   margin-top: 22px;
-  margin-left: 49px;
-  margin-left: ${(props) => props.marginLeft ? props.marginLeft : "0px"};
   width: 165px;
   height: 48px;
   box-shadow: 0px 3px 6px #92207242;
@@ -112,14 +127,23 @@ export const Button = styled.button<ButtonProps>`
   font-size: 18px;
   font-family: "Mulish", serif;
   font-weight: 700;
+  margin-left: 15px;
+  
+  @media(min-width: 1400px){
+    margin-left: ${(props) => props.marginLeft ? props.marginLeft : "0px"};
+  }
 `;
-
 
 export const Line = styled.div`
   margin-top: 28px;
-  margin-left: 36px;
-  width: 364px;
+  margin-left: 50px;
+  width: 300px;
   height: 0px;
   border: 1px solid #E4E4E4;
   opacity: 1;
+  
+  @media(min-width: 1400px){
+    margin-left: 36px;
+    width: 364px;
+  }
 `;

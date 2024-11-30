@@ -105,6 +105,7 @@ export const Home = () => {
         </UlCards>
       </Box>
 
+
       {openNewCard &&
         <NewCard
           handleFunction={handleFile}
@@ -117,6 +118,7 @@ export const Home = () => {
       }
 
       {openModal && <ModalDefault closeCard={setOpenModal} />}
+
     </Container>
   )
 };
