@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const ContainerHeader = styled.div`
+  width: 100%;
+  
+  @media(min-width: 1400px){
+    width: 1440px;
+  }
+`;
+
 export const Container = styled.div`
   background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
   box-shadow: 0px 3px 6px #00000029;

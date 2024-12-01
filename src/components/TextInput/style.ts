@@ -1,9 +1,26 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
+export const Container = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   top: 100px;
-  left: 15px;
-  width: 85%;
+  
+  @media(min-width: 1400px){
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    width: 1050px;
+    left: 158px;
+    top: 185px;
+  } 
+`;
+
+export const Input = styled.input`
+  width: 100%;
   height: 55px;
   background: var(---cor-branco) 0% 0% no-repeat padding-box;
   background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -17,40 +34,22 @@ export const Input = styled.input`
   text-align: left;
   font-size: 16px;
   cursor: pointer;
-  
+
   @media(min-width: 1400px){
     height: 75px;
     font-size: 24px;
-    top: 147px;
-    width: 1046px;
-    left: 168px;
   }
 `;
 
 export const IconStyle = styled.img`
-  top: 115px;
-  right: 54px;
+  right: 10px;
   background: var(--cor-branco) 0% 0% no-repeat padding-box;
   opacity: 1;
   height: 25px;
   position: absolute;
   
-  @media(min-width: 650px){
-    right: 105px;
-  }
-
-  @media(min-width: 850px){
-    right: 145px;
-  }
-
-  @media(min-width: 1200px){
-    right: 175px;
-  }
-  
   @media(min-width: 1400px){
     height: 49px;
-    left: 1150px;
-    top: 157px;
-    width: 70px;
+    right: 25px;
   }
 `;

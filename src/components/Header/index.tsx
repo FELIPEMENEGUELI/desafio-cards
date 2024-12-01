@@ -1,4 +1,4 @@
-import { Container, Image, ImageLogo } from './style';
+import { Container, Image, ImageLogo, ContainerHeader } from './style';
 import { TextInput } from '../TextInput';
 import BackgroundImage from '../../assets/fundo-busca.png';
 import LogoImpar from '../../assets/logo-teste.png';
@@ -11,7 +11,7 @@ interface PropsHeader {
 export const Header = ({ inputName, setInputHeader }: PropsHeader) => {
 
   return (
-    <>
+    <ContainerHeader>
       <Container>
         <ImageLogo src={LogoImpar} alt='Logo empresa ímpar.' />
       </Container>
@@ -22,6 +22,6 @@ export const Header = ({ inputName, setInputHeader }: PropsHeader) => {
       />
       
       <Image src={BackgroundImage} alt='Imagem de fundo com pessoas.' />
-    </>
+    </ContainerHeader>
   )
 };

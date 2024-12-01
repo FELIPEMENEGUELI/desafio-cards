@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   left: 1041px;
-  width: 120px;
+  width: 100px;
   height: 25px;
   background: var(--cor-destaque) 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #92207242;

@@ -6,19 +6,17 @@
 ```
 #
 ### Desafio:
-- Desafio de replicar um layout proposto.
-- Foi desenvolvido pensando na tela proposta 1440px;
-- Foi modificado o layout para se comportar com tela ideal para mobile.
-- Possibilidade de criar novos cards, sendo exibido junto com os cards do pokemon, podendo adicionar um titulo e uma imagem.
-- Cada card criado sera salvo no local storage no browser, quando carregado novamente o navegador sera exibido outra imagem, um icone padrão como mostrado no layout base.
-- Ainda não é possível editar/excluir o card criado.
+- Foi replicado o layout proposto, seguindo fielmente o design original. Seguindo a base de cores, dimensões, fontes, ícones. 
+- Foi desenvolvido pensando na tela proposta no desafio de 1440px seguindo as proporções do original, conforme imagem 1 abaixo.
+- Foi também desenvolvido o layout para se comportar adequadamente para mobile em diferentes tamanhos de telas, pensando no conceito de 'mobile-first', conforme imagem 2 abaixo.
+- Implementada a possibilidade de criar novos cards, adicionando um titulo e uma imagem, além dos cards já existentes, provenientes da api do pokemon. Esses novos cards serão salvos no local storage, no browser. Quando carregado novamente o navegador, será exibida outra imagem: o ícone padrão como mostrado no layout base.
 - É possível deletar todos os cards criados nas configurações do browser.
   - Caso queira deletar os cards salvos, segue os passos:
     - Apertar F12
     - Ir na aba com a opção "Application"
     - No menu de canto esquerdo, selecionar "Local storage", e abrir na seta ao lado
     - Selecionar o site: https://desafio-cards-impar.netlify.app
-    - Deletar a key [@chaves]
+    - Deletar a key [@cards]
 
 #
 ## Rodar localmente:
@@ -43,3 +41,9 @@
 ```
   npm run dev
 ```
+
+- [image-1]
+![Imagem do teste proposto](image-1.png)
+
+- [image-2]
+![alt text](image.png)

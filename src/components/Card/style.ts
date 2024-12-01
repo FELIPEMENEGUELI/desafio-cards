@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  width: 175px;
+  width: 170px;
   height: 267px;
   background: var(--cor-branco) 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #E5E5E5;
@@ -113,6 +113,7 @@ export const Line = styled.div`
   opacity: 1;
   
   @media(min-width: 1400px) {
+    width: 169px;
     margin-left: 31.5px;
   }
 `;
