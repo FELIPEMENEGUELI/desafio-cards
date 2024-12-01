@@ -1,9 +1,8 @@
 # Desafio replicar layout
 
 ### O projeto esta publicado na URL para acesso rapido:
-```
-  https://desafio-cards-impar.netlify.app/
-```
+  - https://desafio-cards-impar.netlify.app/
+
 #
 ### Desafio:
 - Foi replicado o layout proposto, seguindo fielmente o design original. Seguindo a base de cores, dimensões, fontes, ícones. 
