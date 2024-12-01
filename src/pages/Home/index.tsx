@@ -70,13 +70,13 @@ export const Home = () => {
     }
   }
 
-  const resultInputFilter = dataPokemon.filter((card) => {
+  const dataFilters = [...cards, ...dataPokemon];
+
+  const resultInputFilter = dataFilters.filter((card) => {
     const inputName = inputHeader.toLowerCase();
     const nameCard = card.name.toLowerCase();
     return nameCard.includes(inputName);
   });
-
-  const allArray = [...cards, ...resultInputFilter];
 
   useEffect(() => {
     loadApi();
@@ -92,7 +92,7 @@ export const Home = () => {
         </BoxMain>
 
         <UlCards>
-          {allArray.map((card, index) => (
+          {resultInputFilter.map((card, index) => (
             <Cards
               key={index}
               name={card.name}

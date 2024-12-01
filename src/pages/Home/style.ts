@@ -52,7 +52,7 @@ export const UlCards = styled.div`
   
   @media(min-width: 1400px){
     margin-top: 34px;
-    gap: 35px;
-    justify-content: space-between;
+    gap: 40px;
+    justify-content: flex-start;
   }
 `;
