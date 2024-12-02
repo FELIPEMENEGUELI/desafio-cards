@@ -6,6 +6,10 @@ export const ContainerHeader = styled.div`
   @media(min-width: 1400px){
     width: 1440px;
   }
+
+  @media(min-width: 1441px){
+    width: 100%;
+  }
 `;
 
 export const Container = styled.div`
@@ -19,6 +23,10 @@ export const Container = styled.div`
   @media(min-width: 1400px){
     position: absolute;
     width: 1440px;
+  }
+
+  @media(min-width: 1441px){
+    width: 100%;
   }
 `;
 
@@ -37,5 +45,9 @@ export const Image = styled.img`
   @media(min-width: 1400px){
     height: 261px;
     width: 1440px;
+  }
+
+  @media(min-width: 1441px){
+    width: 100%;
   }
 `;

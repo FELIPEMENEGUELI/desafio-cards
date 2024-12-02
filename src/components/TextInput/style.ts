@@ -16,7 +16,15 @@ export const Container = styled.div`
     width: 1050px;
     left: 158px;
     top: 185px;
-  } 
+  }
+
+  @media(min-width: 1441px){
+    margin-left: 0;
+    left: 0;
+    width: 84%;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
 `;
 
 export const Input = styled.input`
@@ -51,5 +59,9 @@ export const IconStyle = styled.img`
   @media(min-width: 1400px){
     height: 49px;
     right: 25px;
+  }
+  
+  @media(min-width: 1441px){
+    right: -80px;
   }
 `;

@@ -16,10 +16,20 @@ export const Box = styled.div`
   margin-right: 5%;
 
   @media(min-width: 1400px) {
-    margin-left: 0;
     margin-right: 0;
     width: 1056px;
     margin-left: 158px;
+  }
+
+  @media(min-width: 1441px){
+    padding-left: 10px;
+  }
+  
+  @media(min-width: 1441px){
+    margin-left: 0;
+    width: 100%;
+    padding-left: 8%;
+    padding-right: 8%;
   }
 `;
 
@@ -54,5 +64,9 @@ export const UlCards = styled.div`
     margin-top: 34px;
     gap: 40px;
     justify-content: flex-start;
+  }
+
+  @media(min-width: 1441px){
+    gap: 26.5px;
   }
 `;
